@@ -1,7 +1,7 @@
 
 from django.urls import path
 from posts.views import  helloview, welcomeview, welcomeuser, homeuser, profileview, \
-    postsindex, showpost
+    postsindex, showpost, deletePost
 urlpatterns = [
     path('hello', helloview, name='helloview'),
     path('welcome', welcomeview, name='welcomeview'),
@@ -10,5 +10,6 @@ urlpatterns = [
     path('home/<int:id>', homeuser, name='homeuser'),
     path('profile', profileview, name='profileview'),
     path('index', postsindex, name='posts.index'),
-    path('<int:id>',showpost, name='posts.show' )
+    path('<int:id>',showpost, name='posts.show' ),
+    path('<int:id>/delete',deletePost, name='posts.delete' )
 ]

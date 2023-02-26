@@ -10,6 +10,7 @@
       <th scope="col">Title</th>
       <th scope="col">Description</th>
       <th scope="col">Show</th>
+        <th scope="col">Delete</th>
     </tr>
     {% for post in posts %}
         <tr>
@@ -17,6 +18,7 @@
             <td> {{post.title}}</td>
             <td> {{post.description}}</td>
             <td> <a href="{% url 'posts.show' post.id %}"  class="btn btn-info"> Show</a></td>
+            <td> <a href="{% url 'posts.delete' post.id %}"  class="btn btn-danger"> Delete</a></td>
 
         </tr>
     {% endfor %}
