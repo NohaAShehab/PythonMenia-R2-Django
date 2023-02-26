@@ -11,5 +11,41 @@ YOU MUST RESTART THE SERVER
 #### configure database credits, tell project --> connected to postgres
 
 
+############## when django project ---> create django app --->
+admin  --> Admin dashboard for your project
 
+#### running command ---->  python manage.py migrate
+####  connect project with datbase ---> admin panel
+
+### django project ---> provide migration files ? ---->
+contain the metadata about the table in the databse
+
+---> migrations ---> used to apply changes to the database
+---> versionning control for the database changes....
+
+####################
+python manage.py createsuperuser  # create superuser ---> can be used to log in admin dashboard
+###############################
+
+
+### install dbms extension
+### add postgres conf. to settings.py
+## python manage.py migrate ---> connect the project to the database
+## 10 tables created , default installed apps in the application
+## appliction ----> admin --->
+## create new admin account  ---> python manage.py createsuperuser
+
+##################################################################
+####### Perform crud operations on the table --> database
+
+Model ---> Class ---> represent table
+
+##### tell database about the table I need to create ---> which I had added its information in
+the model class
+
+
+python manage.py makemigrations ---> scan any changes added to the models files in your apps
+---> create migrations files
+
+###########################################################
 
