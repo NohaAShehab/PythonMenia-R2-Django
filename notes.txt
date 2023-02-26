@@ -49,3 +49,68 @@ python manage.py makemigrations ---> scan any changes added to the models files 
 
 ###########################################################
 
+Crud using models
+
+1-import the model
+    from posts.model import Post
+
+2- use model to get the data
+select * from posts_post;
+    Post.objects.all()   # query set
+
+select * from posts_post where id > 2;
+    Post.objects.filter(id__gt=2)  # query set
+
+get one object
+select * from posts_post where title='post2';
+### make sure ---> get ---> return one object ?
+Post.objects.get(title='post2')  # object from the model  # get return only one object ?
+### get by id ---> primary key unique
+#### used with unique field ?
+
+select * from posts_post where title='post2' limit 1;
+
+
+#############3
+select * from posts where title like 'p%' or id > 2;
+from django.db.models import Q
+Post.objects.filter(Q(title__startswith='p')| Q(id__gt=2))
+
+################################
+create object ?
+
+p = Post()
+p.title = 'post added'
+p.version = 1
+p.privacy = '1'
+p.save()
+
+########## edit object , or delete object ?
+1- get object
+
+p.title = 'post added'
+p.version = 1
+p.privacy = '1'
+p.save()
+
+or
+p.delete()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
