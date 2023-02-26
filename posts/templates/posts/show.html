@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-  {{post}}
-</body>
-</html>
+{% extends 'posts/base.html' %}
+{% load static %}
+{% block title %} Show post: {{post.title}} {% endblock%}
+
+{% block 'main' %}
+    <p> this a demo paragraph </p>
+{% endblock %}
+
+
+{% block 'content' %}
+    {{post}}
+    <img src="{% static 'posts/images/'|add:post.image %}" >
+{% endblock %}

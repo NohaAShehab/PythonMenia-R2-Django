@@ -30,9 +30,9 @@ def profileview(request):
 
 
 posts = [
-        {"id":1, "title":"post1", "description":"post1 description"},
-        {"id": 2, "title": "post2", "description": "post2 description"},
-        {"id": 3, "title": "post3", "description": "post3 description"},
+        {"id":1, "title":"post1", "description":"post1 description", 'image': 'pic2.png'},
+        {"id": 2, "title": "post2", "description": "post2 description", 'image': 'pic3.png' },
+        {"id": 3, "title": "post3", "description": "post3 description",  'image': 'pic4.png'},
     ]
 
 def postsindex(request):

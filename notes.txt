@@ -1,0 +1,15 @@
+### load image from static files
+## js , css, images files
+### add external files to the project ---?'
+
+when create a new directory for the static files
+YOU MUST RESTART THE SERVER
+
+################# connect the application with database
+### install suitable dbms drivers
+
+#### configure database credits, tell project --> connected to postgres
+
+
+
+
