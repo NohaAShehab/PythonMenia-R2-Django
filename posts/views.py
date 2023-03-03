@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from posts.models import Post
 from categories.models import Category
-from posts.forms import PostForm
+from posts.forms import PostForm, PostModelForm
 # Create your views here.
 
 
@@ -67,28 +67,32 @@ def deletePost(request, id):
 def createPost(request):
     print(request)
     if request.method=='GET':
-        postform = PostForm()
+        # postform = PostForm()
+        postform = PostModelForm()
         # cats = Category.get_all_categories()
         return render(request, 'posts/createform.html', context={'form': postform})
 
     elif request.method=='POST':
-        # print(request.FILES)
-        print(request.POST)
-        p = Post()
-        p.title = request.POST['title']
-        p.description = request.POST['description']
-        # p.image = request.POST['image']
-        print(request.FILES)
-        if request.FILES:
-            p.image =request.FILES['image']
-        p.version = request.POST['version']
-        p.privacy = request.POST['privacy']
-        print(request.POST)
-        if 'category' in request.POST:
-            category = Category.get_category(request.POST['category'])
-            p.category = category
-        p.save()
-        return redirect('posts.index')
+        postform  = PostModelForm(request.POST, request.FILES)
+        if postform.is_valid():
+            postform.save()
+            return redirect('posts.index')
+
         # return HttpResponse('post request method')
+        return redirect('posts.create')
+
+def editpost(request, id ):
+    post = Post.get_spefic_post(id)
+    if request.method=='GET':
+        postform = PostModelForm(instance=post)
+        return render(request, 'posts/editform.html', context={'form': postform})
+    if request.method=='POST':
+        postform = PostModelForm( request.POST, request.FILES, instance=post)
+        if postform.is_valid():
+            postform.save()
+            return redirect(post.get_show_url())
+
+
+        return redirect('posts.create')
 
 
