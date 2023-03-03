@@ -17,8 +17,8 @@
             <td> {{post.id}}</td>
             <td> {{post.title}}</td>
             <td> {{post.description}}</td>
-            <td> <a href="{% url 'posts.show' post.id %}"  class="btn btn-info"> Show</a></td>
-            <td> <a href="{% url 'posts.delete' post.id %}"  class="btn btn-danger"> Delete</a></td>
+            <td> <a href="{{post.get_show_url}}"  class="btn btn-info"> Show</a></td>
+            <td> <a href="{{post.get_delete_url}}"  class="btn btn-danger"> Delete</a></td>
 
         </tr>
     {% endfor %}

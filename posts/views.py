@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 
 from posts.models import Post
-
 # Create your views here.
 
 
@@ -40,14 +39,15 @@ def profileview(request):
 #     ]
 
 def postsindex(request):
-    posts = Post.objects.all()
+    posts = Post.get_all_posts()
     return  render(request, 'posts/index.html', context={"posts":posts})
 
 
 
 def showpost(request,id):
     # post = Post.objects.get(id=id)
-    post = get_object_or_404(Post, pk=id)
+    # post = get_object_or_404(Post, pk=id)
+    post = Post.get_spefic_post(id)
 
     return render(request, 'posts/show.html', context={"post":post})
 

@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.shortcuts import reverse, get_object_or_404
 # Create your models here.
 
 ## Model class represent table in the database
@@ -20,3 +20,21 @@ class Post(models.Model):
 
     def get_image_url(self):
         return f"/media/{self.image}"
+
+
+    def get_show_url(self):
+        return reverse('posts.show', args={self.id})
+
+    def get_delete_url(self):
+        print(reverse('posts.delete', args={self.id}) )
+        return reverse('posts.delete', args={self.id})
+
+
+    @classmethod
+    def get_all_posts(cls):
+        return cls.objects.all()
+
+
+    @classmethod
+    def get_spefic_post(cls, id):
+        return get_object_or_404(cls, pk=id)
