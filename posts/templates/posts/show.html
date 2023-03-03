@@ -15,7 +15,18 @@
   <div class="card-body">
     <h5 class="card-title">{{post.title}}</h5>
     <p class="card-text">{{post.description}}</p>
+      <p class="card-text">Cat: {{post.category}}</p>
     <a href="" class="btn btn-primary"> Back to all posts </a>
   </div>
 </div>
+
+<h1> See other posts from the same category  </h1>
+
+<!--    {{post.category.category_posts.all}}-->
+    {% for p in post.category.category_posts.all %}
+        {% if p.id != post.id %}
+        <li> <a href="{{p.get_show_url}}">{{p}} </a> </li>
+        {% endif %}
+    {% endfor %}
+
 {% endblock %}

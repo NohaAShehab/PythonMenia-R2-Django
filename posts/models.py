@@ -14,7 +14,8 @@ class Post(models.Model):
     privacy = models.CharField(max_length=2, choices=[('1', 'Public'),('2', 'Private')])
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
-    category = models.ForeignKey(Category,on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Category,on_delete=models.CASCADE, null=True,
+                                 related_name='category_posts')
     # relation one to many ---> foreign key
 
 
