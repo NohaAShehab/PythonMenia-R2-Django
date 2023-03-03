@@ -4,4 +4,7 @@ pip install pillow
 
 ########################################### Form Add new POST
 
+######################### Add category to posts
+## each post under one category
+## category has many posts
 

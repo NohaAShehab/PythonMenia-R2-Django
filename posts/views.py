@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 
 from posts.models import Post
+from categories.models import Category
 # Create your views here.
 
 
@@ -65,17 +66,24 @@ def deletePost(request, id):
 def createPost(request):
     print(request)
     if request.method=='GET':
-        return render(request, 'posts/create.html')
+        cats = Category.get_all_categories()
+        return render(request, 'posts/create.html', context={'categories': cats})
     elif request.method=='POST':
-        print(request.FILES)
+        # print(request.FILES)
+        print(request.POST)
         p = Post()
         p.title = request.POST['title']
         p.description = request.POST['description']
         # p.image = request.POST['image']
-        if request.FILES['image']:
+        print(request.FILES)
+        if request.FILES:
             p.image =request.FILES['image']
         p.version = request.POST['version']
         p.privacy = request.POST['privacy']
+        print(request.POST)
+        if 'category' in request.POST:
+            category = Category.get_category(request.POST['category'])
+            p.category = category
         p.save()
         return redirect('posts.index')
         # return HttpResponse('post request method')

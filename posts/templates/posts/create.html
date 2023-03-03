@@ -44,6 +44,16 @@
     <label  class="form-label">Version</label>
     <input type="number"  name='version' class="form-control"/>
   </div>
+
+  <div class="mb-3">
+    <label  class="form-label">Category</label>
+    <select class="form-select" name='category' aria-label="Default select example">
+      <option selected disabled>Open this select menu</option>
+      {% for cat in categories %}
+      <option value="{{cat.id}}">{{cat}}</option>
+      {% endfor %}
+    </select>
+  </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 

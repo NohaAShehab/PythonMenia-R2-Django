@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'contactus.apps.ContactusConfig',
     'posts.apps.PostsConfig',
     'django_cleanup.apps.CleanupConfig',
+    'categories.apps.CategoriesConfig'
 
 ]
 

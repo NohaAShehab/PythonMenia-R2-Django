@@ -1,5 +1,6 @@
 from django.db import models
 from django.shortcuts import reverse, get_object_or_404
+from categories.models import Category
 # Create your models here.
 
 ## Model class represent table in the database
@@ -13,6 +14,8 @@ class Post(models.Model):
     privacy = models.CharField(max_length=2, choices=[('1', 'Public'),('2', 'Private')])
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
+    category = models.ForeignKey(Category,on_delete=models.CASCADE, null=True)
+    # relation one to many ---> foreign key
 
 
     def __str__(self):
