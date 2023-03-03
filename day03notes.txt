@@ -8,3 +8,5 @@ pip install pillow
 ## each post under one category
 ## category has many posts
 
+
+########## django forms ?

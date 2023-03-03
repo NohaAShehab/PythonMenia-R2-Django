@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 from posts.models import Post
 from categories.models import Category
+from posts.forms import PostForm
 # Create your views here.
 
 
@@ -66,8 +67,10 @@ def deletePost(request, id):
 def createPost(request):
     print(request)
     if request.method=='GET':
-        cats = Category.get_all_categories()
-        return render(request, 'posts/create.html', context={'categories': cats})
+        postform = PostForm()
+        # cats = Category.get_all_categories()
+        return render(request, 'posts/createform.html', context={'form': postform})
+
     elif request.method=='POST':
         # print(request.FILES)
         print(request.POST)
