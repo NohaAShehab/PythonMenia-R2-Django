@@ -2,7 +2,7 @@
 {% block 'title' %}All Posts {% endblock %}
 
 {% block 'content' %}
-
+<a href="{% url 'posts.create' %}" class="btn btn-primary"> Create new post </a>
 <table class="table">
   <thead>
     <tr>

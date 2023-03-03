@@ -1,0 +1,7 @@
+### upload image
+### in model ---> field --> Charfield ---> ImageField
+pip install pillow
+
+########################################### Form Add new POST
+
+

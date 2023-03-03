@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from django.conf.urls.static import static
+from django.conf import settings
 from posts.views import  helloview, welcomeview, welcomeuser, homeuser, profileview, \
     postsindex, showpost
 
@@ -32,4 +33,5 @@ urlpatterns = [
     # path('posts/index', postsindex, name='posts.index'),
     # path('posts/<int:id>',showpost, name='posts.show' ),
     path('posts/', include('posts.urls'))
-]
+    ##generate url for your media files
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

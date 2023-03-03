@@ -62,3 +62,22 @@ def deletePost(request, id):
 
 
 
+def createPost(request):
+    print(request)
+    if request.method=='GET':
+        return render(request, 'posts/create.html')
+    elif request.method=='POST':
+        print(request.FILES)
+        p = Post()
+        p.title = request.POST['title']
+        p.description = request.POST['description']
+        # p.image = request.POST['image']
+        if request.FILES['image']:
+            p.image =request.FILES['image']
+        p.version = request.POST['version']
+        p.privacy = request.POST['privacy']
+        p.save()
+        return redirect('posts.index')
+        # return HttpResponse('post request method')
+
+
