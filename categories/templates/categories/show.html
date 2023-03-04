@@ -1,0 +1,23 @@
+{% extends 'posts/base.html' %}
+{% load static %}
+{% block title %} Show post: {{post.title}} {% endblock%}
+
+{% block 'main' %}
+    <p> this a demo paragraph </p>
+{% endblock %}
+
+
+{% block 'content' %}
+    {{post}}
+
+<div class="card" style="width: 18rem;">
+  <img src="{{object.get_image_url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{object.name}}</h5>
+    <p class="card-text">{{object.description}}</p>
+    <a href="" class="btn btn-primary"> Back to all Categories </a>
+  </div>
+</div>
+
+
+{% endblock %}

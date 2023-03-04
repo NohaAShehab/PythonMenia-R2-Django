@@ -23,15 +23,9 @@ from posts.views import  helloview, welcomeview, welcomeuser, homeuser, profilev
 from contactus.views import contactusview
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('hello', helloview, name='helloview'),
-    # path('welcome', welcomeview, name='welcomeview'),
-    # ## variable part of the urls
-    # path('welcome/<name>', welcomeuser, name='welcomeuser'),
-    # path('home/<int:id>', homeuser, name='homeuser'),
-    # path('profile', profileview, name='profileview'),
     path('mmmmmmmm', contactusview, name='contactus'),
-    # path('posts/index', postsindex, name='posts.index'),
-    # path('posts/<int:id>',showpost, name='posts.show' ),
-    path('posts/', include('posts.urls'))
-    ##generate url for your media files
+
+    path('posts/', include('posts.urls')),
+    path('categories/', include('categories.urls'))
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
