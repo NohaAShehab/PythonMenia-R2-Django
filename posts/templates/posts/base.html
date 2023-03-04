@@ -27,6 +27,14 @@
         </li>
       </ul>
     </div>
+        {% if request.user.is_authenticated %}
+      {{user.username}}
+      <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="nav-link">login</a>
+            <a href="{% url 'account.register' %}" class="nav-link">Register</a>
+      {% endif %}
+
   </div>
 </nav>
 <div class="container">

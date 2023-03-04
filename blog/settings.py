@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'contactus.apps.ContactusConfig',
     'posts.apps.PostsConfig',
     'django_cleanup.apps.CleanupConfig',
-    'categories.apps.CategoriesConfig'
+    'categories.apps.CategoriesConfig',
+    'accounts.apps.AccountsConfig'
 
 ]
 
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -140,3 +141,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT=os.path.join(BASE_DIR, 'media/')
+
+LOGIN_REDIRECT_URL = "/posts/index"
+LOGOUT_REDIRECT_URL = "/posts/index"

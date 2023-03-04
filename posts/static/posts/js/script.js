@@ -1,4 +1,14 @@
+spans = document.querySelectorAll('span');
+for (var j = 0; j < spans.length; j++) {
+    spans[j].classList.add('d-block');
+}
 
+
+labels = document.querySelectorAll('label');
+
+for (var i = 0; i < labels.length; i++) {
+    labels[i].classList.add('form-label');
+}
 
 inputs = document.querySelectorAll('input');
 for (var i = 0; i < inputs.length; i++) {

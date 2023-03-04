@@ -1,5 +1,6 @@
 
 from django.urls import path
+from django.contrib.auth.decorators import login_required
 from posts.views import  helloview, welcomeview, welcomeuser, homeuser, profileview, \
     postsindex, showpost, deletePost, createPost, editpost
 urlpatterns = [
@@ -12,6 +13,6 @@ urlpatterns = [
     path('index', postsindex, name='posts.index'),
     path('<int:id>',showpost, name='posts.show' ),
     path('<int:id>/delete',deletePost, name='posts.delete' ),
-    path('create', createPost, name='posts.create'),
+    path('create', login_required(createPost), name='posts.create'),
     path('<int:id>/edit',editpost, name='posts.edit' )
 ]

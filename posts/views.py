@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 from posts.models import Post
 from categories.models import Category
@@ -81,6 +82,7 @@ def createPost(request):
         # return HttpResponse('post request method')
         return redirect('posts.create')
 
+@login_required()
 def editpost(request, id ):
     post = Post.get_spefic_post(id)
     if request.method=='GET':
